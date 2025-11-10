@@ -3,6 +3,7 @@ import { Request, Response } from "express";
 import OpenAI from "openai";
 import dotenv from "dotenv";
 import { prismaClient } from "@repo/db/schema";
+import { SYSTEM_PROMPT } from "../config/index.js";
 dotenv.config();
 
 
@@ -53,7 +54,7 @@ export const generateResponse = async (req: Request, res: Response) => {
         {
         role: "system",
         name: "Drawmaps AI",
-        content: process.env.SYSTEM_PROMPT!,
+        content: SYSTEM_PROMPT,
         },
         {
         role: "user",
@@ -63,13 +64,13 @@ export const generateResponse = async (req: Request, res: Response) => {
     });
 
 
-    const response = completion.choices[0]?.message.content!
-    const parsedResponse = JSON.parse(response);
+    const response = completion.choices[0]?.message.content as string
+    // const parsedResponse = JSON.parse(response);
 
         llmResponse.push({
         id: crypto.randomUUID(),
         timestamp: Date.now(),
-        content: parsedResponse
+        content: response
         });
 
 
