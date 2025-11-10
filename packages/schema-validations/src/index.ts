@@ -16,3 +16,9 @@ export const UserPrompt = z.object({
     .min(4, "Prompt must be at least 4 characters long")
     .max(1000, "Prompt too long")
 });
+
+export const RoomInput = z.object({
+    name: z.string().trim()
+    .min(4, "The room name should be atleast 4 chars.")
+    .max(20, "The room name too long")
+})

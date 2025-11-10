@@ -7,6 +7,7 @@ dotenv.config();
 
 
 const OPENAI_OSS_API_KEY= process.env.OPENAI_OSS_API_KEY
+const QWEN3CODER_API_KEY = process.env.QWEN3CODER_API_KEY
 
 interface LLM {
     id: string
@@ -167,3 +168,4 @@ export const generateResponse = async (req: Request, res: Response) => {
     })
   }
 }
+
