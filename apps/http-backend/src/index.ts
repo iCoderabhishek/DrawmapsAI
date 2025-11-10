@@ -2,6 +2,8 @@ import express from "express"
 import cors from "cors"
 import  UserRoute  from "./routes/user.routes.js"
 import SignUpRoute from "./routes/auth.routes.js"
+import RoomRoute from "./routes/room.routes.js"
+import AIRoute from "./routes/ai.routes.js"
 const app = express()
 
 app.use(express.json())
@@ -12,6 +14,8 @@ const HTTP_PORT = process.env.HTTP_PORT || 3001
 
 app.use("/api/v1/user", UserRoute)
 app.use("/api/v1/auth", SignUpRoute)
+app.use("/api/v1/rooms", RoomRoute)
+app.use("/api/v1/ai", AIRoute)
 
 
 app.listen(HTTP_PORT, () => console.log("server is up @", HTTP_PORT))

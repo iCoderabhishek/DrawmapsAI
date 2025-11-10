@@ -3,13 +3,11 @@
   "module": "src/index.ts",
   "type": "module",
   "private": true,
-
   "scripts": {
     "build": "tsc -b",
     "start": "node ./dist/index.js",
     "dev": "npm run build && npm run start"
   },
-
   "devDependencies": {
     "@types/bun": "latest",
     "@types/bcrypt": "^6.0.0",
@@ -24,9 +22,12 @@
     "@repo/typescript-config": "workspace:*",
     "@repo/schema-validations": "workspace:*",
     "@repo/db": "workspace:*"
-
   },
   "peerDependencies": {
     "typescript": "^5"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "openai": "^6.8.1"
   }
 }

@@ -12,4 +12,22 @@ To run:
 bun run index.ts
 ```
 
+Base URL stats with 
+
+```
+{PORT}/api/v1/
+
+```
+All Endpoints are- 
+
+```
+/user/all
+
+/auth/signup
+/auth/login
+
+/rooms/:id
+
+```
+
 This project was created using `bun init` in bun v1.3.0. [Bun](https://bun.com) is a fast all-in-one JavaScript runtime.
