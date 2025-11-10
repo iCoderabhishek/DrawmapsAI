@@ -18,6 +18,38 @@ model User {
   email     String   @unique
   password  String
   username  String
+  rooms Room[]
+  chat Chat[]
+  llmResponse LLMResponse[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+model Room {
+  id String @id @default(uuid())
+  name String @unique
+  createdAt DateTime @default(now())
+  adminId String
+  admin User @relation(fields: [adminId], references: [id])
+  chat Chat[]
+  llmResponse LLMResponse[]
+  disabled    Boolean  @default(false) 
+}
+
+model Chat {
+  id Int @id @default(autoincrement())
+  messages String
+  roomId String
+  userId String
+  room Room @relation(fields: [roomId], references: [id])
+  user User @relation(fields: [userId], references: [id])
+}
+
+model LLMResponse {
+  id Int @id @default(autoincrement())
+  response String
+  roomId String
+  userId String
+  room Room @relation(fields: [roomId], references: [id])
+  user User @relation(fields: [userId], references: [id])
 }
