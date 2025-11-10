@@ -11,7 +11,7 @@ export const authMiddleware = (req: Request, res: Response, next: NextFunction) 
     }
     try {
         const decoded = jwt.verify(token, JWT_SECRET!) as { userId: string };
-        req.body.userId = decoded.userId;
+        req.userId = decoded.userId;
         next();
     } catch (error: any) {
         res.status(401).json({
