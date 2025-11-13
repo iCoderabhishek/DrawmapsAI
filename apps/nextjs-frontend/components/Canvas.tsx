@@ -8,6 +8,7 @@ const initialNodes = [
   { id: 'root', position: { x: 0, y: 0 }, data: { label: 'Creation of an Atom' } },
   { id: '1', position: { x: -150, y: 100 }, data: { label: 'Matter Genesis' } },
   { id: '2', position: { x: 150, y: 100 }, data: { label: 'Forces & Binding' } },
+  { id: '3', position: { x: 170, y: 100 }, data: { label: 'Matter Genesis' } },
 ];
 const initialEdges = [
   { id: 'root-1', source: 'root', target: '1' },
