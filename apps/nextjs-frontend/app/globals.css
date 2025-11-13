@@ -25,3 +25,54 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 } 
+
+
+
+@layer utilities {
+  .shadow-soft {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+  }
+
+  .shadow-soft-sm {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+  }
+
+  .shadow-soft-md {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
+  }
+}
+
+.sketchy-canvas .react-flow__node {
+  font-family: inherit;
+}
+
+.sketchy-canvas .react-flow__edge-path {
+  stroke: #94a3b8;
+  stroke-width: 2;
+}
+
+.sketchy-controls button {
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 8px !important;
+  background: white !important;
+  font-weight: 500;
+  transition: all 0.2s;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.sketchy-controls button:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-color: #94a3b8 !important;
+}
+
+.sketchy-minimap {
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 8px !important;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
