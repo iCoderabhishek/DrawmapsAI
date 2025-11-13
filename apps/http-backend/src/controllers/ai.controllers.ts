@@ -64,8 +64,11 @@ export const generateResponse = async (req: Request, res: Response) => {
     });
 
 
+
     const response = completion.choices[0]?.message.content as string
     // const parsedResponse = JSON.parse(response);
+    const response = completion.choices[0]?.message.content!
+
 
         llmResponse.push({
         id: crypto.randomUUID(),
@@ -92,7 +95,7 @@ export const generateResponse = async (req: Request, res: Response) => {
 
     await prismaClient.lLMResponse.create({
         data: {
-            response: response,
+            response,
             userId,
             roomId
         }
@@ -101,7 +104,8 @@ export const generateResponse = async (req: Request, res: Response) => {
     console.log("llmResponse[] = ", llmResponse);
 
     res.status(201).json({
-        gptResponse: "true", 
+        message: "success",
+        prompt: parsedData.data.prompt,
         response
     })
     
