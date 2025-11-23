@@ -1,6 +1,6 @@
 
 import express, { Router } from "express"
-import { login, signup } from "../controllers/auth.controllers.js";
+// import { login, signup } from "../controllers/auth.controllers.js";
 import { getAllUsers } from "../controllers/user.controllers.js";
 
 

@@ -14,6 +14,7 @@ import {
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import { Layers } from 'lucide-react';
+import { authClient } from '@/lib/auth-client';
 
 const initialNodes: Node[] = [
   {
@@ -61,6 +62,8 @@ const initialEdges: Edge[] = [
 export function RightPanel() {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+    const { data: session } = authClient.useSession();
+
 
   const onConnect = useCallback(
     (params: Connection) => setEdges((eds) => addEdge(params, eds)),
@@ -71,7 +74,7 @@ export function RightPanel() {
     <div className="flex-1 flex flex-col h-full ">
       <div className="px-6 py-4 border-b  shadow-soft">
         <div className="flex items-center gap-3">
-          
+          <div>Welcome {session?.user.email}</div>
           <h2 className="text-xl font-semibold text-slate-800">Here is your Canvas 👇</h2>
         </div>
         

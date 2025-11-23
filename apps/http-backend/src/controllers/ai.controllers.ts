@@ -67,7 +67,6 @@ export const generateResponse = async (req: Request, res: Response) => {
 
     const response = completion.choices[0]?.message.content as string
     // const parsedResponse = JSON.parse(response);
-    const response = completion.choices[0]?.message.content!
 
 
         llmResponse.push({
